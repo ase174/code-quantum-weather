@@ -1,0 +1,19 @@
+from flask import Flask, make_response, jsonify
+import json
+#from flask_cors import CORS
+#import ./createData
+
+
+app = Flask(__name__)
+
+@app.route("/")
+def sendData():
+    resp = make_response(
+            jsonify(
+                {"hello world":'abc'}
+                ),
+                200,
+            )
+    resp.headers["Content-Type"] = "application/json"
+    resp.headers["Access-Control-Allow-Origin"] = "*"
+    return resp
